@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Sonic 1 Title Screen";
+    src: url("../fonts/sonic.ttf") format("truetype");
+    font-weight: bold;
+}
+h1{
+    font-family: "Sonic 1 Title Screen";
+    font-size: 50px;
+}
+
+p{
+    font-family: "Sonic 1 Title Screen";
+    font-size: 15px;
+    width: 300px;
+}   
+
+body{
+    background-image: url("../img/fon.png");
+    background-size: 100%; 
+}
+.nazvanie{
+    width: 800px;
+    height: 100px;
+    background-color:rgba(240, 240, 240, 0.37);
+    align-items: center;
+    justify-content: center;
+    margin-left: 22.5%;
+    display: flex;
+}
+
+.osnova{
+    width: 800px;
+    height: 100%;  
+    margin-left: 22.5%;
+    background-color:rgba(240,240,240,0.37);
+}
+
+.inf{
+    padding: 50px;
+
+}
+
+img{
+    float: right;
+    width: 300px;
+    height: 200px;
+}
