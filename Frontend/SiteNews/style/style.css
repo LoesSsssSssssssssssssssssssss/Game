@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Sonic 1 Title Screen";
+    src: url("../fonts/sonic.ttf") format("truetype");
+    font-weight: bold;
+}
+
+body {
+    background-image: url(../img/fon.png);
+    background-size: 100%;
+}
+
+.conainer{
+    display: flex;
+    justify-content: center;
+}
+
+.content__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding-bottom: 5%;
+    margin-bottom: 10%;
+
+    background: rgba(240, 240, 240, 0.37);
+    width: 824px;
+    height: 100%;
+}
+
+.wrapper__header {
+    display: flex;
+
+    font-family: "Sonic 1 Title Screen";
+    color: rgb(66, 60, 149);
+    font-size: 44px;
+    margin-top: 2%;
+}
+
+.wrapper__header > p {
+    margin-top: 3%;
+}
+
+.header__img__kitty{
+    margin-top: 3%;
+    width: 77px;
+    height: 77px;
+}
+
+.header__img {
+    width: 84px;
+    height: 84px;
+}
+
+.wrapper__info{
+    display: flex;
+
+    margin-top: 5%;
+    font-size: 30px;
+
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+.wrapper__info > p {
+    font-family: 'Lusitana', serif;
+    font-size: 30px;
+}
+
+.wrapper__info > img {
+    width: 392px;
+    height: 270px;
+}
+
+.example {
+    width: 776px;
+    height: 230px;
+
+    background-color: blue;
+}
+
+.wrapper__slider {
+    width: 776px;
+    height: 230px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.wrapper__news {
+    display: flex;
+
+    padding-right: 2%;
+    padding-left: 2%;
+
+    margin-top: 2%;
+}
+
+.wrapper__news__example {
+    width: 286px;
+    height: 241px;
+
+    background: #E7E7E7;
+    border: 2px solid #609CC7;
+}
+
+.wrapper__news__text {
+    font-size: 30px;
+    width: 449px;
+    margin-left: 1%;
+}
+
+.footer {
+    margin-top: 8%;
+    display: flex;
+}
+
+.footer__leftside {
+    font-size: 30px;
+}
+
+.footer__img {
+    width: 75px;
+    height: 75px;
+}
