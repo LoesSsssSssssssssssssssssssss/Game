@@ -5,6 +5,8 @@ window.addEventListener('keydown', (event) => {
       for (let i = 0; i < kittys.length; i++) {
         const kitty = kittys[i]
 
+        console.log("Kitty-for");
+
         if (
           player.hitbox.position.x + player.hitbox.width <=
             kitty.position.x + kitty.width &&
@@ -19,6 +21,53 @@ window.addEventListener('keydown', (event) => {
           kitty.play()
           return
         }
+        
+      }
+
+      for (let i = 0; i < fishes.length; i++) {
+        const fish = fishes[i]
+
+        console.log("Fish-for");
+
+        if (
+          player.hitbox.position.x + player.hitbox.width <=
+            fish.position.x + fish.width &&
+          player.hitbox.position.x >= fish.position.x &&
+          player.hitbox.position.y + player.hitbox.height >= fish.position.y &&
+          player.hitbox.position.y <= fish.position.y + fish.height
+        ) {
+          player.velocity.x = 0
+          player.velocity.y = 0
+          player.preventInput = true
+          player.switchSprite('getFish')
+          fish.play()
+          return
+        }
+        
+      }
+
+      break
+
+    case 'Enter':
+      for (let i = 0; i < lastones.length; i++) {
+        const Lastone = lastones[i]
+
+        if (
+          player.hitbox.position.x + player.hitbox.width <= Lastone.position.x + Lastone.width &&
+          player.hitbox.position.x >= Lastone.position.x &&
+          player.hitbox.position.y + player.hitbox.height >= Lastone.position.y &&
+          player.hitbox.position.y <= Lastone.position.y + Lastone.height
+        ) {
+          player.velocity.x = 0
+          player.velocity.y = 0
+          player.preventInput = false
+          gsap.to(overlay, {
+              opacity: 1,
+            })
+            
+          return
+        }
+        
       }
 
       break
@@ -51,12 +100,10 @@ window.addEventListener('keydown', (event) => {
       break
     case 'a':
       // move player to the left
-      console.log("A pressed");
       keys.a.pressed = true
       break
     case 'd':
       // move player to the right
-      console.log("d pressed");
       keys.d.pressed = true
       break
   }
