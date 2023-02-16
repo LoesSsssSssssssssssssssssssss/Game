@@ -27,8 +27,7 @@ body {
     align-items: center;
     flex-direction: column;
 
-    padding-bottom: 5%;
-    margin-bottom: 10%;
+    padding-bottom: 3%;
 
     background: rgba(240, 240, 240, 0.37);
     width: 824px;
@@ -122,10 +121,19 @@ a {
 .footer {
     margin-top: 8%;
     display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer__rightside {
+    margin-right: 5%;
 }
 
 .footer__leftside {
     font-size: 30px;
+    margin-left: 5%;
 }
 
 .footer__img {
