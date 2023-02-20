@@ -43,9 +43,6 @@ window.addEventListener('keydown', (event) => {
         
       }
 
-      break
-
-    case 'Enter':
       for (let i = 0; i < lastones.length; i++) {
         const Lastone = lastones[i]
 
@@ -66,7 +63,7 @@ window.addEventListener('keydown', (event) => {
         }
         
       }
-
+      
       break
 
     case ' ':
