@@ -1,6 +1,6 @@
-SiteAdvertising - рекламный сайт
-SiteGame - сайт игры
-SiteNews - новостной сайт
+- SiteAdvertising - рекламный сайт
+- SiteGame - сайт игры
+- SiteNews - новостной сайт
 
 - [x] - сделать рекламный сайт
 - [x] - сделать сайт игры
