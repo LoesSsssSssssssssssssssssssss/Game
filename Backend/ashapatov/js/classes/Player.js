@@ -151,4 +151,22 @@ class Player extends Sprite {
       }
     }
   }
+
+  checkForUron() {
+    for (let i = 0; i < this.collisionBlocks.length; i++) {
+      const collisionBlock = this.collisionBlocks[i]
+
+      // if a collision exists
+      if (
+        this.hitbox.position.x <=
+          collisionBlock.position.x + collisionBlock.width &&
+        this.hitbox.position.x + this.hitbox.width >=
+          collisionBlock.position.x &&
+        this.hitbox.position.y + this.hitbox.height >=
+          collisionBlock.position.y &&
+        this.hitbox.position.y <=
+          collisionBlock.position.y + collisionBlock.height
+      ) {}
+    }
+  }
 }

@@ -1,8 +1,8 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = 64 * 16 // 1024
-canvas.height = 64 * 9 // 576
+canvas.width = 64 * 19 // 1216
+canvas.height = 64 * 10 // 808
 
 let parsedCollisions
 let collisionBlocks
@@ -13,6 +13,7 @@ let kittyCount = 0
 let lastones
 let fishes
 let fishescount = 0
+let traps
 
 const player = new Player({
   imageSrc: './img/king/idle.png',
@@ -109,6 +110,10 @@ const player = new Player({
         fishes.shift();
       },
     },
+
+    getIntrap: {
+
+    },
   },
 })
 
@@ -172,6 +177,8 @@ let levels = {
           autoplay: true,
         }),
       ]
+
+      traps = []
     },
   },
   2: {
@@ -235,6 +242,8 @@ let levels = {
           autoplay: true,
         }),
       ]
+
+      traps = []
     },
   },
   3: {
@@ -242,8 +251,8 @@ let levels = {
       parsedCollisions = collisionsLevel3.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 750
-      player.position.y = 230
+      player.position.x = 100
+      player.position.y = 500
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -251,28 +260,28 @@ let levels = {
           x: 0,
           y: 0,
         },
-        imageSrc: './img/backgroundLevel3.png',
+        imageSrc: './img-levels/lvl1-lst.png',
       })
 
       doors = [
-        new Sprite({
-          position: {
-            x: 176.0,
-            y: 335,
-          },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
-          loop: false,
-          autoplay: false,
-        }),
+        // new Sprite({
+        //   position: {
+        //     x: 176.0,
+        //     y: 335,
+        //   },
+        //   imageSrc: './img/doorOpen.png',
+        //   frameRate: 5,
+        //   frameBuffer: 5,
+        //   loop: false,
+        //   autoplay: false,
+        // }),
       ]
 
       kittys = [
         new Sprite({
           position: {
-            x: 752.0,
-            y: 336,
+            x: 900.0,
+            y: 440,
           },
           imageSrc: './img/gg.png',
           frameRate: 1,
@@ -283,24 +292,38 @@ let levels = {
       ]
 
       lastones = [
-        new Sprite({
-          position: {
-            x: 352.0,
-            y: 386,
-          },
-          imageSrc: './img/gg.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
+        // new Sprite({
+        //   position: {
+        //     x: 352.0,
+        //     y: 386,
+        //   },
+        //   imageSrc: './img/gg.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
       ]
 
       fishes = [
         new Sprite({
           position: {
-            x: 572.0,
-            y: 386,
+            x: 272.0,
+            y: 406,
+          },
+          imageSrc: './img/ff.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      traps = [
+        new Sprite({
+          position: {
+            x: 500.0,
+            y: 430,
           },
           imageSrc: './img/ff.png',
           frameRate: 1,
@@ -353,6 +376,10 @@ function animate() {
     fish.draw()
   })
 
+  traps.forEach((trap) => {
+    trap.draw()
+  })
+
   player.handleInput(keys)
   player.draw()
   player.update()
@@ -364,5 +391,6 @@ function animate() {
   c.restore()
 }
 
+getCought(traps);
 levels[level].init()
 animate()
