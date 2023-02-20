@@ -1,28 +1,83 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-    <link href="./style/itc-slider.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link href="./style/itc-slider.css" rel="stylesheet">
+    <title>Blog</title>
 </head>
-<body>
-    <div class="container">
-        <div class="white_bg_continer_header">
-            <div class="content_heder">
 
+<body>
+    <div class="conainer">
+        <div class="content__wrapper">
+            <div class="wrapper__header">
+                <img class="header__img" src="./img/cat.png">
+                <div class="wrapper_title">
+                    <p class="header2">MEOW-КА</p>
+                </div>
+                <img class="header__img__kitty" src="./img/kitty.png">
+            </div>
+            <div class="wrapper__info">
+            </div>
+            <div class="wrapper__header"></div>
+            <div class="wrapper__slider">
+                <div class="itc-slider" data-autoplay="true" data-interval="7000" data-loop="true"
+                    data-slider="itc-slider">
+                    <div class="itc-slider__wrapper">
+                        <div class="itc-slider__items">
+                            <div class="itc-slider__item">
+                                <div class="slider__content"><img class="slider__wrapper__img" src="./img/gl.png" ></div>
+                            </div>
+                            <div class="itc-slider__item">
+                                <div class="slider__content"><img class="slider__wrapper__img" src="./img/lvlexample4.png" ></div>
+                            </div>
+                            <div class="itc-slider__item">
+                                <div class="slider__content"><img class="slider__wrapper__img" src="./img/lvlsvipe.png" ></div>
+                            </div>
+                            <div class="itc-slider__item">
+                                <div class="slider__content"><img class="slider__wrapper__img" src="./img/lvlexample1.png" ></div>
+                            </div>
+                            <div class="itc-slider__item">
+                                <div class="slider__content"><img class="slider__wrapper__img" src="./img/lvlexample2.png" ></div>
+                            </div>
+                            <div class="itc-slider__item">
+                                <div class="slider__content"><img class="slider__wrapper__img" src="./img/lvlexample3.png" ></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                    <button class="itc-slider__btn itc-slider__btn_next"></button>
+                </div>
+           
+            </div>
+            <div class="wrapper__info__text">Удивительные приключения Кошечки Царапки! Присоединяйся к захватывающему поиску
+                котиков! Собирай уникальные записки, собирай выпавшие из корзинки рыбки-бонусы во время прохождения
+                карт, исследуй увлекательный подземный мир, прочувствуй атмосферу разнообразных локаций проходя игру,
+                соревнуйся со своими друзьями кто быстрее пройдет игру. Найди всех котиков и одержи победу над Генералом
+                Гавсом!!! Улыбайся и получай удовольстве от прохождения!!!
+            </div>
+            <div class="wrapper__title2">
+                <br>
+                    <a class="header">УЗНАТЬ БОЛЬШЕ</a>
+                </br>
+            </div>  
+            <div class="footer">
+                <div class="footer__leftside">MEOW-КА</div>
+                <div class="footer__rightside">
+                    <img class="footer__img" src="./img/vk.png">
+                    <img class="footer__img" src="./img/tg.png">
+                </div>
             </div>
         </div>
-        <div class="white_bg_continer_main">
-
-        </div>
-        <div class="white_bg_continer_footer">
-
-        </div>
     </div>
+
+    <script src="./script/itc-slider.js"></script>
 </body>
+
 </html>
