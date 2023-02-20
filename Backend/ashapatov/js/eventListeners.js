@@ -5,9 +5,7 @@ window.addEventListener('keydown', (event) => {
       for (let i = 0; i < kittys.length; i++) {
         const kitty = kittys[i]
 
-        console.log("Kitty-for");
-
-        if (
+        if (  
           player.hitbox.position.x + player.hitbox.width <=
             kitty.position.x + kitty.width &&
           player.hitbox.position.x >= kitty.position.x &&
@@ -17,8 +15,9 @@ window.addEventListener('keydown', (event) => {
           player.velocity.x = 0
           player.velocity.y = 0
           player.preventInput = true
-          player.switchSprite('getKitty')
-          kitty.play()
+          player.switchSprite('getKitty');
+          kitty.play();
+          console.log("Kitty-for-copleted");
           return
         }
         
@@ -27,20 +26,18 @@ window.addEventListener('keydown', (event) => {
       for (let i = 0; i < fishes.length; i++) {
         const fish = fishes[i]
 
-        console.log("Fish-for");
-
         if (
-          player.hitbox.position.x + player.hitbox.width <=
-            fish.position.x + fish.width &&
-          player.hitbox.position.x >= fish.position.x &&
-          player.hitbox.position.y + player.hitbox.height >= fish.position.y &&
-          player.hitbox.position.y <= fish.position.y + fish.height
+          player.position.x <= fish.position.x + fish.width &&
+          player.position.x + player.width >= fish.position.x &&
+          player.position.y + player.height >= fish.position.y &&
+          player.position.y <= fish.position.y + fish.height
         ) {
           player.velocity.x = 0
           player.velocity.y = 0
           player.preventInput = true
           player.switchSprite('getFish')
           fish.play()
+          console.log("Fish-for-completed");
           return
         }
         

@@ -98,23 +98,15 @@ const player = new Player({
     getFish: {
       frameRate: 1,
       frameBuffer: 1,
-      loop: true,
+      loop: false,
       imageSrc: '',
       onComplete: () => {
         console.log('completed animation')
         fishescount++
         console.log(fishescount);
+        player.switchSprite('idleRight')
+        player.preventInput = false
         fishes.shift();
-        gsap.to(overlay, {
-          opacity: 1,
-          onComplete: () => {
-            player.switchSprite('idleRight')
-            player.preventInput = false
-            gsap.to(overlay, {
-              opacity: 0,
-            })
-          },
-        })
       },
     },
   },
@@ -313,8 +305,8 @@ let levels = {
           imageSrc: './img/ff.png',
           frameRate: 1,
           frameBuffer: 1,
-          loop: true,
-          autoplay: true,
+          loop: false,
+          autoplay: false,
         }),
       ]
     },
