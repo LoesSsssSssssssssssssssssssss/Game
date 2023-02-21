@@ -391,6 +391,5 @@ function animate() {
   c.restore()
 }
 
-getCought(traps);
 levels[level].init()
 animate()

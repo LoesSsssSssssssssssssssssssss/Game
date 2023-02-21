@@ -103,10 +103,6 @@ window.addEventListener('keydown', (event) => {
   }
 })
 
-window.addEventListener('all', (event) => {
-  console.log("1");
-})
-
 window.addEventListener('keyup', (event) => {
   switch (event.key) {
     case 'a':
@@ -122,24 +118,3 @@ window.addEventListener('keyup', (event) => {
   }
 })
 
-function getCought(traps){
-  for (let i = 0; i < traps.length; i++) {
-    const trap = traps[i]
-  
-    if (  
-      player.hitbox.position.x + player.hitbox.width <=
-      traps.position.x + kitty.width &&
-      player.hitbox.position.x >= traps.position.x &&
-      player.hitbox.position.y + player.hitbox.height >= traps.position.y &&
-      player.hitbox.position.y <= traps.position.y + traps.height
-    ) {
-      player.velocity.x = 0
-      player.velocity.y = 0
-      player.preventInput = true
-      player.switchSprite('getIntrap');
-      trap.play();
-      console.log("trap-for-copleted");
-    }
-  }
-  getCought();
-}
