@@ -72,11 +72,11 @@ class Player extends Sprite {
   updateHitbox() {
     this.hitbox = {
       position: {
-        x: this.position.x + 58,
+        x: this.position.x + 1,
         y: this.position.y + 34,
       },
-      width: 50,
-      height: 53,
+      width: 60,
+      height: 40,
     }
   }
 

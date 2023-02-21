@@ -6,11 +6,10 @@ window.addEventListener('keydown', (event) => {
         const kitty = kittys[i]
 
         if (  
-          player.hitbox.position.x + player.hitbox.width <=
-            kitty.position.x + kitty.width &&
-          player.hitbox.position.x >= kitty.position.x &&
-          player.hitbox.position.y + player.hitbox.height >= kitty.position.y &&
-          player.hitbox.position.y <= kitty.position.y + kitty.height
+          player.position.x <= kitty.position.x + kitty.width &&
+          player.position.x + player.width >= kitty.position.x &&
+          player.position.y + player.height >= kitty.position.y &&
+          player.position.y <= kitty.position.y + kitty.height
         ) {
           player.velocity.x = 0
           player.velocity.y = 0
