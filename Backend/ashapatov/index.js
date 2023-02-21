@@ -40,9 +40,9 @@ const player = new Player({
     },
     runLeft: {
       frameRate: 4,
-      frameBuffer: 8,
+      frameBuffer: 12,
       loop: true,
-      imageSrc: './img/kit/kittyanim2.png',
+      imageSrc: './img/kit/kittyanim3.png',
     },
     enterDoor: {
       frameRate: 1,
