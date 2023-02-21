@@ -8,6 +8,7 @@ let parsedCollisions
 let collisionBlocks
 let background
 let doors
+let fake_doors
 let kittys
 let kittyCount = 0
 let lastones
@@ -15,6 +16,9 @@ let fishes
 let fishescount = 0
 let traps
 let lives = 1
+let cells
+let unreachables
+let keyses
 
 const player = new Player({
   imageSrc: './img/kit/ksks1mod.png',
@@ -33,16 +37,16 @@ const player = new Player({
       imageSrc: './img/kit/ks1.png',
     },
     runRight: {
-      frameRate: 4,
-      frameBuffer: 8,
+      frameRate: 1,
+      frameBuffer: 1,
       loop: true,
-      imageSrc: './img/kit/ks2mod.png',
+      imageSrc: './img/kit/ks2.png',
     },
     runLeft: {
-      frameRate: 4,
-      frameBuffer: 12,
+      frameRate: 1,
+      frameBuffer: 1,
       loop: true,
-      imageSrc: './img/kit/kittyanim3.png',
+      imageSrc: './img/kit/ks1.png',
     },
     enterDoor: {
       frameRate: 1,
@@ -69,6 +73,21 @@ const player = new Player({
     },
 
     getKitty: {
+      frameRate: 1,
+      frameBuffer: 1,
+      loop: false,
+      imageSrc: '',
+      onComplete: () => {
+        console.log('completed animation')
+        kittyCount += 500
+        console.log(kittyCount)
+        player.switchSprite('idleRight')
+        player.preventInput = false
+        kittys.shift();
+      },
+    },
+
+    getKey: {
       frameRate: 1,
       frameBuffer: 1,
       loop: false,
@@ -104,7 +123,7 @@ const player = new Player({
       imageSrc: '',
       onComplete: () => {
         console.log('completed animation')
-        fishescount++
+        fishescount += 100
         console.log(fishescount);
         player.switchSprite('idleRight')
         player.preventInput = false
@@ -141,12 +160,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 767,
-            y: 270,
+            x: 1067,
+            y: 260,
           },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
+          imageSrc: './img/caver.png',
+          frameRate: 1,
+          frameBuffer: 1,
           loop: false,
           autoplay: false,
         }),
@@ -171,10 +190,10 @@ let levels = {
       fishes = [
         new Sprite({
           position: {
-            x: 572.0,
+            x: 272.0,
             y: 315,
           },
-          imageSrc: './img/ff.png',
+          imageSrc: './img/fish.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: true,
@@ -185,16 +204,35 @@ let levels = {
       traps = [
         new Sprite({
           position: {
-            x: 582.0,
-            y: 426,
+            x: 578,
+            y: 492,
           },
-          imageSrc: './img/fck.png',
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+        new Sprite({
+          position: {
+            x: 642,
+            y: 492,
+          },
+          imageSrc: './img/lovushka.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: true,
           autoplay: true,
         }),
       ]
+
+      unreachables = []
+
+      cells = []
+
+      keyses = []
+
+      fake_doors = []
     },
   },
   2: {
@@ -202,8 +240,8 @@ let levels = {
       parsedCollisions = collisionsLevel2.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 96
-      player.position.y = 140
+      player.position.x = 80
+      player.position.y = 410
 
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
@@ -218,12 +256,12 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 772.0,
-            y: 336,
+            x: 1072.0,
+            y: 68,
           },
-          imageSrc: './img/doorOpen.png',
-          frameRate: 5,
-          frameBuffer: 5,
+          imageSrc: './img/caver.png',
+          frameRate: 1,
+          frameBuffer: 1,
           loop: false,
           autoplay: false,
         }),
@@ -232,7 +270,7 @@ let levels = {
       kittys = [
         new Sprite({
           position: {
-            x: 152.0,
+            x: 552.0,
             y: 136,
           },
           imageSrc: './img/minikit.png',
@@ -248,10 +286,10 @@ let levels = {
       fishes = [
         new Sprite({
           position: {
-            x: 572.0,
-            y: 396,
+            x: 1072.0,
+            y: 150,
           },
-          imageSrc: './img/ff.png',
+          imageSrc: './img/fish.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: true,
@@ -263,15 +301,23 @@ let levels = {
         new Sprite({
           position: {
             x: 182.0,
-            y: 376,
+            y: 492,
           },
-          imageSrc: './img/fck.png',
+          imageSrc: './img/lovushka.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: true,
           autoplay: true,
         }),
       ]
+
+      unreachables = []
+
+      cells = []
+
+      keyses = []
+
+      fake_doors = []
     },
   },
   3: {
@@ -280,7 +326,7 @@ let levels = {
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
       player.position.x = 100
-      player.position.y = 500
+      player.position.y = 150
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -292,24 +338,24 @@ let levels = {
       })
 
       doors = [
-        // new Sprite({
-        //   position: {
-        //     x: 176.0,
-        //     y: 335,
-        //   },
-        //   imageSrc: './img/doorOpen.png',
-        //   frameRate: 5,
-        //   frameBuffer: 5,
-        //   loop: false,
-        //   autoplay: false,
-        // }),
+        new Sprite({
+          position: {
+            x: 1076.0,
+            y: 452  ,
+          },
+          imageSrc: './img/caver.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
       ]
 
       kittys = [
         new Sprite({
           position: {
-            x: 900.0,
-            y: 340,
+            x: 60.0,
+            y: 330,
           },
           imageSrc: './img/minikit.png',
           frameRate: 1,
@@ -336,10 +382,10 @@ let levels = {
       fishes = [
         new Sprite({
           position: {
-            x: 272.0,
-            y: 406,
+            x: 780.0,
+            y: 80,
           },
-          imageSrc: './img/ff.png',
+          imageSrc: './img/fish.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -351,24 +397,32 @@ let levels = {
         new Sprite({
           position: {
             x: 700.0,
-            y: 330,
+            y: 428,
           },
-          imageSrc: './img/fck.png',
+          imageSrc: './img/lovushka.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
           autoplay: false,
         }),
       ]
+
+      unreachables = []
+
+      cells = []
+
+      keyses = []
+
+      fake_doors = []
     },
   },
   4: {
     init: () => {
-      parsedCollisions = collisionsLevel3.parse2D()
+      parsedCollisions = collisionsLevel41.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
-      player.position.x = 100
-      player.position.y = 500
+      player.position.x = 1000
+      player.position.y = 130
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
@@ -385,447 +439,7 @@ let levels = {
         //     x: 176.0,
         //     y: 335,
         //   },
-        //   imageSrc: './img/doorOpen.png',
-        //   frameRate: 5,
-        //   frameBuffer: 5,
-        //   loop: false,
-        //   autoplay: false,
-        // }),
-      ]
-
-      kittys = [
-        new Sprite({
-          position: {
-            x: 900.0,
-            y: 340,
-          },
-          imageSrc: './img/minikit.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
-      ]
-
-      lastones = [
-        // new Sprite({
-        //   position: {
-        //     x: 352.0,
-        //     y: 386,
-        //   },
-        //   imageSrc: './img/minikit.png',
-        //   frameRate: 1,
-        //   frameBuffer: 1,
-        //   loop: true,
-        //   autoplay: true,
-        // }),
-      ]
-
-      fishes = [
-        new Sprite({
-          position: {
-            x: 272.0,
-            y: 406,
-          },
-          imageSrc: './img/ff.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-
-      traps = [
-        new Sprite({
-          position: {
-            x: 700.0,
-            y: 330,
-          },
-          imageSrc: './img/fck.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-    },
-  },
-  5: {
-    init: () => {
-      parsedCollisions = collisionsLevel3.parse2D()
-      collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      player.collisionBlocks = collisionBlocks
-      player.position.x = 100
-      player.position.y = 500
-      if (player.currentAnimation) player.currentAnimation.isActive = false
-
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: './img-lvls/lvl4-2.png',
-      })
-
-      doors = [
-        // new Sprite({
-        //   position: {
-        //     x: 176.0,
-        //     y: 335,
-        //   },
-        //   imageSrc: './img/doorOpen.png',
-        //   frameRate: 5,
-        //   frameBuffer: 5,
-        //   loop: false,
-        //   autoplay: false,
-        // }),
-      ]
-
-      kittys = [
-        new Sprite({
-          position: {
-            x: 900.0,
-            y: 340,
-          },
-          imageSrc: './img/minikit.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
-      ]
-
-      lastones = [
-        // new Sprite({
-        //   position: {
-        //     x: 352.0,
-        //     y: 386,
-        //   },
-        //   imageSrc: './img/minikit.png',
-        //   frameRate: 1,
-        //   frameBuffer: 1,
-        //   loop: true,
-        //   autoplay: true,
-        // }),
-      ]
-
-      fishes = [
-        new Sprite({
-          position: {
-            x: 272.0,
-            y: 406,
-          },
-          imageSrc: './img/ff.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-
-      traps = [
-        new Sprite({
-          position: {
-            x: 700.0,
-            y: 330,
-          },
-          imageSrc: './img/fck.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-    },
-  },
-  6: {
-    init: () => {
-      parsedCollisions = collisionsLevel3.parse2D()
-      collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      player.collisionBlocks = collisionBlocks
-      player.position.x = 100
-      player.position.y = 500
-      if (player.currentAnimation) player.currentAnimation.isActive = false
-
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: './img-lvls/lvl5-hall.png',
-      })
-
-      doors = [
-        // new Sprite({
-        //   position: {
-        //     x: 176.0,
-        //     y: 335,
-        //   },
-        //   imageSrc: './img/doorOpen.png',
-        //   frameRate: 5,
-        //   frameBuffer: 5,
-        //   loop: false,
-        //   autoplay: false,
-        // }),
-      ]
-
-      kittys = [
-        new Sprite({
-          position: {
-            x: 900.0,
-            y: 340,
-          },
-          imageSrc: './img/minikit.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
-      ]
-
-      lastones = [
-        // new Sprite({
-        //   position: {
-        //     x: 352.0,
-        //     y: 386,
-        //   },
-        //   imageSrc: './img/minikit.png',
-        //   frameRate: 1,
-        //   frameBuffer: 1,
-        //   loop: true,
-        //   autoplay: true,
-        // }),
-      ]
-
-      fishes = [
-        new Sprite({
-          position: {
-            x: 272.0,
-            y: 406,
-          },
-          imageSrc: './img/ff.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-
-      traps = [
-        new Sprite({
-          position: {
-            x: 700.0,
-            y: 330,
-          },
-          imageSrc: './img/fck.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-    },
-  },
-  7: {
-    init: () => {
-      parsedCollisions = collisionsLevel3.parse2D()
-      collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      player.collisionBlocks = collisionBlocks
-      player.position.x = 100
-      player.position.y = 500
-      if (player.currentAnimation) player.currentAnimation.isActive = false
-
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: './img-lvls/lvl5-1.png',
-      })
-
-      doors = [
-        // new Sprite({
-        //   position: {
-        //     x: 176.0,
-        //     y: 335,
-        //   },
-        //   imageSrc: './img/doorOpen.png',
-        //   frameRate: 5,
-        //   frameBuffer: 5,
-        //   loop: false,
-        //   autoplay: false,
-        // }),
-      ]
-
-      kittys = [
-        new Sprite({
-          position: {
-            x: 900.0,
-            y: 340,
-          },
-          imageSrc: './img/minikit.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
-      ]
-
-      lastones = [
-        // new Sprite({
-        //   position: {
-        //     x: 352.0,
-        //     y: 386,
-        //   },
-        //   imageSrc: './img/minikit.png',
-        //   frameRate: 1,
-        //   frameBuffer: 1,
-        //   loop: true,
-        //   autoplay: true,
-        // }),
-      ]
-
-      fishes = [
-        new Sprite({
-          position: {
-            x: 272.0,
-            y: 406,
-          },
-          imageSrc: './img/ff.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-
-      traps = [
-        new Sprite({
-          position: {
-            x: 700.0,
-            y: 330,
-          },
-          imageSrc: './img/fck.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-    },
-  },
-  8: {
-    init: () => {
-      parsedCollisions = collisionsLevel3.parse2D()
-      collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      player.collisionBlocks = collisionBlocks
-      player.position.x = 100
-      player.position.y = 500
-      if (player.currentAnimation) player.currentAnimation.isActive = false
-
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: './img-lvls/lvl5-2.png',
-      })
-
-      doors = [
-        // new Sprite({
-        //   position: {
-        //     x: 176.0,
-        //     y: 335,
-        //   },
-        //   imageSrc: './img/doorOpen.png',
-        //   frameRate: 5,
-        //   frameBuffer: 5,
-        //   loop: false,
-        //   autoplay: false,
-        // }),
-      ]
-
-      kittys = [
-        new Sprite({
-          position: {
-            x: 900.0,
-            y: 340,
-          },
-          imageSrc: './img/minikit.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
-      ]
-
-      lastones = [
-        // new Sprite({
-        //   position: {
-        //     x: 352.0,
-        //     y: 386,
-        //   },
-        //   imageSrc: './img/minikit.png',
-        //   frameRate: 1,
-        //   frameBuffer: 1,
-        //   loop: true,
-        //   autoplay: true,
-        // }),
-      ]
-
-      fishes = [
-        new Sprite({
-          position: {
-            x: 272.0,
-            y: 406,
-          },
-          imageSrc: './img/ff.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-
-      traps = [
-        new Sprite({
-          position: {
-            x: 700.0,
-            y: 330,
-          },
-          imageSrc: './img/fck.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: false,
-          autoplay: false,
-        }),
-      ]
-    },
-  },
-  9: {
-    init: () => {
-      parsedCollisions = collisionsLevel3.parse2D()
-      collisionBlocks = parsedCollisions.createObjectsFrom2D()
-      player.collisionBlocks = collisionBlocks
-      player.position.x = 100
-      player.position.y = 500
-      if (player.currentAnimation) player.currentAnimation.isActive = false
-
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: './img-lvls/lvl5-hall.png',
-      })
-
-      doors = [
-        // new Sprite({
-        //   position: {
-        //     x: 176.0,
-        //     y: 335,
-        //   },
-        //   imageSrc: './img/doorOpen.png',
+        //   imageSrc: './img/caver.png',
         //   frameRate: 5,
         //   frameBuffer: 5,
         //   loop: false,
@@ -848,26 +462,26 @@ let levels = {
       ]
 
       lastones = [
-        new Sprite({
-          position: {
-            x: 900,
-            y: 340,
-          },
-          imageSrc: './img/minikit.png',
-          frameRate: 1,
-          frameBuffer: 1,
-          loop: true,
-          autoplay: true,
-        }),
+        // new Sprite({
+        //   position: {
+        //     x: 352.0,
+        //     y: 386,
+        //   },
+        //   imageSrc: './img/minikit.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
       ]
 
       fishes = [
         new Sprite({
           position: {
-            x: 272.0,
-            y: 406,
+            x: 100.0,
+            y: 200,
           },
-          imageSrc: './img/ff.png',
+          imageSrc: './img/fish.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -878,10 +492,628 @@ let levels = {
       traps = [
         new Sprite({
           position: {
-            x: 700.0,
-            y: 330,
+            x: 642.0,
+            y: 300,
           },
-          imageSrc: './img/fck.png',
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      unreachables = []
+
+      cells = []
+
+      keyses = []
+
+      fake_doors = []
+    },
+  },
+  5: {
+    init: () => {
+      parsedCollisions = collisionsLevel42.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 1050
+      player.position.y = 180
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './img-lvls/lvl4-2.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 992.0,
+            y: 452,
+          },
+          imageSrc: './img/caver.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      kittys = [
+        new Sprite({
+          position: {
+            x: 80.0,
+            y: 522,
+          },
+          imageSrc: './img/minikit.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
+
+      lastones = [
+        // new Sprite({
+        //   position: {
+        //     x: 352.0,
+        //     y: 386,
+        //   },
+        //   imageSrc: './img/minikit.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
+      ]
+
+      fishes = [
+        new Sprite({
+          position: {
+            x: 330.0,
+            y: 140,
+          },
+          imageSrc: './img/fish.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      traps = [
+        new Sprite({
+          position: {
+            x: 320.0,
+            y: 556,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+        new Sprite({
+          position: {
+            x: 384,
+            y: 556,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+        new Sprite({
+          position: {
+            x: 448,
+            y: 556,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      unreachables = []
+
+      cells = []
+
+      keyses = []
+
+      fake_doors = []
+    },
+  },
+  6: {
+    init: () => {
+      parsedCollisions = collisionsLevel5h.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 100
+      player.position.y = 350
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './img-lvls/lvl5-hall.png',
+      })
+
+      doors = [
+        new Sprite({
+          position: {
+            x: 128.0,
+            y: 105,
+          },
+          imageSrc: './img/door2.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 756.0,
+            y: 105,
+          },
+          imageSrc: './img/door2.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      kittys = [
+        // new Sprite({
+        //   position: {
+        //     x: 900.0,
+        //     y: 340,
+        //   },
+        //   imageSrc: './img/minikit.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
+      ]
+
+      lastones = [
+        // new Sprite({
+        //   position: {
+        //     x: 352.0,
+        //     y: 386,
+        //   },
+        //   imageSrc: './img/minikit.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
+      ]
+
+      unreachables = [
+        new Sprite({
+          position: {
+            x: 492.0,
+            y: 386,
+          },
+          imageSrc: './img/minikit.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
+
+      cells = [
+        new Sprite({
+          position: {
+            x: 435,
+            y: 210,
+          },
+          imageSrc: './img/cell2.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+
+        new Sprite({
+          position: {
+            x: 435.0,
+            y: 145,
+          },
+          imageSrc: './img/cell2.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
+
+      fishes = [
+        // new Sprite({
+        //   position: {
+        //     x: 272.0,
+        //     y: 406,
+        //   },
+        //   imageSrc: './img/fish.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: false,
+        //   autoplay: false,
+        // }),
+      ]
+
+      traps = [
+        // new Sprite({
+        //   position: {
+        //     x: 700.0,
+        //     y: 330,
+        //   },
+        //   imageSrc: './img/lovushka.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: false,
+        //   autoplay: false,
+        // }),
+      ]
+
+      keyses = []
+
+      fake_doors = []
+    },
+  },
+  7: {
+    init: () => {
+      parsedCollisions = collisionsLevel51.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 1050
+      player.position.y = 290
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './img-lvls/lvl5-1.png',
+      })
+
+      doors = [
+        // new Sprite({
+        //   position: {
+        //     x: 176.0,
+        //     y: 335,
+        //   },
+        //   imageSrc: './img/caver.png',
+        //   frameRate: 5,
+        //   frameBuffer: 5,
+        //   loop: false,
+        //   autoplay: false,
+        // }),
+      ]
+
+      kittys = [
+        // new Sprite({
+        //   position: {
+        //     x: 900.0,
+        //     y: 340,
+        //   },
+        //   imageSrc: './img/minikit.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
+      ]
+
+      keyses = [
+        new Sprite({
+          position: {
+            x: 60,
+            y: 514,
+          },
+          imageSrc: './img/card.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
+
+      lastones = [
+        // new Sprite({
+        //   position: {
+        //     x: 352.0,
+        //     y: 386,
+        //   },
+        //   imageSrc: './img/minikit.png',
+        //   frameRate: 1,
+        //   frameBuffer: 1,
+        //   loop: true,
+        //   autoplay: true,
+        // }),
+      ]
+
+      fishes = [
+        new Sprite({
+          position: {
+            x: 1000.0,
+            y: 130,
+          },
+          imageSrc: './img/fish.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      traps = [
+        new Sprite({
+          position: {
+            x: 832,
+            y: 555,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 896,
+            y: 555,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 512,
+            y: 428,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 576,
+            y: 428,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 832,
+            y: 172,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 896,
+            y: 172,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      unreachables = []
+
+      cells = []
+
+      fake_doors = []
+    },
+  },
+  8: {
+    init: () => {
+      parsedCollisions = collisionsLevel52.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 100
+      player.position.y = 100
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './img-lvls/lvl5-2.png',
+      })
+
+      doors = []
+
+      kittys = []
+
+      lastones = []
+
+      fishes = [
+        new Sprite({
+          position: {
+            x: 1100,
+            y: 520,
+          },
+          imageSrc: './img/fish.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      traps = [
+        new Sprite({
+          position: {
+            x: 320.0,
+            y: 555,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 706.0,
+            y: 300,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 906.0,
+            y: 300,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 1088.0,
+            y: 428,
+          },
+          imageSrc: './img/lovushka.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+
+      unreachables = []
+
+      cells = []
+
+      fake_doors = []
+
+      keyses = [
+        new Sprite({
+          position: {
+            x: 755,
+            y: 450,
+          },
+          imageSrc: './img/card.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
+    },
+  },
+  9: {
+    init: () => {
+      parsedCollisions = collisionsLevel5h.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 100
+      player.position.y = 350
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        imageSrc: './img-lvls/lvl5-hall.png',
+      })
+
+      doors = []
+
+      kittys = []
+
+      lastones = [
+        new Sprite({
+          position: {
+            x: 500,
+            y: 395,
+          },
+          imageSrc: './img/minikit.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
+
+      fishes = []
+
+      traps = []
+
+      unreachables = []
+
+      cells = []
+
+      keyses = []
+
+      fake_doors = [
+        new Sprite({
+          position: {
+            x: 128.0,
+            y: 105,
+          },
+          imageSrc: './img/door2.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: false,
+          autoplay: false,
+        }),
+
+        new Sprite({
+          position: {
+            x: 756.0,
+            y: 105,
+          },
+          imageSrc: './img/door2.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
@@ -928,6 +1160,14 @@ function animate() {
     lastone.draw()
   })
 
+  unreachables.forEach((unreachable) => {
+    unreachable.draw()
+  })
+
+  cells.forEach((cell) => {
+    cell.draw()
+  })
+
   fishes.forEach((fish) => {
     fish.draw()
   })
@@ -936,6 +1176,13 @@ function animate() {
     trap.draw()
   })
 
+  keyses.forEach((key) => {
+    key.draw()
+  })
+
+  fake_doors.forEach((fdoor) => {
+    fdoor.draw()
+  })
   player.handleInput(keys)
   player.draw()
   player.update()
