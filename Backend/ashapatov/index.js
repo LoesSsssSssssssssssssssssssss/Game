@@ -40,9 +40,9 @@ const player = new Player({
     },
     runLeft: {
       frameRate: 4,
-      frameBuffer: 4,
+      frameBuffer: 8,
       loop: true,
-      imageSrc: './img/kit/kittyanim.png',
+      imageSrc: './img/kit/kittyanim2.png',
     },
     enterDoor: {
       frameRate: 1,
@@ -125,6 +125,9 @@ let levels = {
       parsedCollisions = collisionsLevel1.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
+      player.position.x = 96
+      player.position.y = 340
+
       if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({
