@@ -1,474 +1,472 @@
 @import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap');
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
-    font-family: "Sonic 1 Title Screen";
-    src: url("../fonts/sonic.ttf") format("truetype");
-    font-weight: bold;
+  font-family: 'Sonic 1 Title Screen';
+  src: url('../fonts/Sonic.ttf') format('truetype');
+  font-weight: bold;
 }
 
 body {
-    background: url(../img/fon.png) no-repeat;
-    background-size: 100% 100%;
+  background: url(../img/fon.png) no-repeat;
+  background-size: 100% 100%;
 }
 
 .conainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .content__wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-    padding-bottom: 3%;
+  padding-bottom: 3%;
 
-    background: rgba(240, 240, 240, 0.37);
-    width: 824px;
-    height: 100%;
+  background: rgba(240, 240, 240, 0.37);
+  width: 824px;
+  height: 100%;
 }
 
 .wrapper__header {
-    display: flex;
+  display: flex;
 
-    font-family: "Sonic 1 Title Screen";
-    color: rgb(66, 60, 149);
-    font-size: 44px;
-    margin-top: 2%;
+  font-family: 'Sonic 1 Title Screen';
+  color: rgb(66, 60, 149);
+  font-size: 44px;
+  margin-top: 2%;
 }
 
 .wrapper_title {
-    display: flex;
-    font-family: "Sonic 1 Title Screen";
-    font-size: 44px;
-    margin-top: 1%;
+  display: flex;
+  font-family: 'Sonic 1 Title Screen';
+  font-size: 44px;
+  margin-top: 1%;
 }
 
 .wrapper_title2 {
-    display: flex;
-    font-family: "Sonic 1 Title Screen";
-    padding: 10%;
-    font-size: 44px;
-    margin-top: 1%;
+  display: flex;
+  font-family: 'Sonic 1 Title Screen';
+  padding: 10%;
+  font-size: 44px;
+  margin-top: 1%;
 }
 
 .header__img__kitty {
-    width: 77px;
-    height: 77px;
+  width: 77px;
+  height: 77px;
 }
 
 .header__img {
-    width: 84px;
-    height: 84px;
+  width: 84px;
+  height: 84px;
 }
 
 .wrapper__info {
-    display: flex;
+  display: flex;
 
-    margin-top: 5%;
-    font-size: 30px;
+  margin-top: 5%;
+  font-size: 30px;
 
-    padding-right: 2%;
-    padding-left: 2%;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
 .wrapper__info__text {
-    display: flex;
+  display: flex;
 
-    margin-top: 5%;
-    font-size: 30px;
+  margin-top: 5%;
+  font-size: 30px;
 
-    padding-right: 2%;
-    padding-left: 2%;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
 .header {
-    margin-top: 100%;
-    font-family: "Sonic 1 Title Screen";
-    font-size: 44px;
-    color: black;
-    background-color: #ffffff50;
-    padding: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+  margin-top: 100%;
+  font-family: 'Sonic 1 Title Screen';
+  font-size: 44px;
+  color: black;
+  background-color: #ffffff50;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .header:hover {
-    background-color: #ffffff00;
+  background-color: #ffffff00;
 }
 
 p {
-    font-family: 'Lusitana', serif;
-    font-size: 30px;
+  font-family: 'Lusitana', serif;
+  font-size: 30px;
 }
 
 .wrapper__info__img {
-    width: 392px;
-    height: 270px;
+  width: 392px;
+  height: 270px;
 }
 
 .slider__content {
-    width: 776px;
-    height: 500px;
+  width: 776px;
+  height: 500px;
 }
 
 .slider__wrapper__img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .example {
-    width: 776px;
-    height: 500px;
+  width: 776px;
+  height: 500px;
 
-    background-color: blue;
+  background-color: blue;
 }
 
 .wrapper__slider {
-    width: 776px;
-    height: 500px;
+  width: 776px;
+  height: 500px;
 }
 
 a {
-    font-family: "Sonic 1 Title Screen";
-    text-decoration: none;
-    cursor: pointer;
+  font-family: 'Sonic 1 Title Screen';
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .wrapper__news {
-    display: flex;
+  display: flex;
 
-    padding-right: 2%;
-    padding-left: 2%;
+  padding-right: 2%;
+  padding-left: 2%;
 
-    margin-top: 2%;
+  margin-top: 2%;
 }
 
 .wrapper__news__example {
-    width: 286px;
-    height: 241px;
+  width: 286px;
+  height: 241px;
 
-    background: #E7E7E7;
-    border: 2px solid #609CC7;
+  background: #e7e7e7;
+  border: 2px solid #609cc7;
 }
 
 .wrapper__news__text {
-    font-size: 30px;
-    width: 449px;
-    margin-left: 1%;
+  font-size: 30px;
+  width: 449px;
+  margin-left: 1%;
 }
 
 .footer {
-    margin-top: 8%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
+  margin-top: 8%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .footer__rightside {
-    margin-right: 5%;
+  margin-right: 5%;
 }
 
 .footer__leftside {
-    color: rgba(21, 17, 34, 0.5);
-    font-size: 30px;
-    margin-left: 5%;
+  color: rgba(21, 17, 34, 0.5);
+  font-size: 30px;
+  margin-left: 5%;
 }
 
 .footer__img {
-    width: 75px;
-    height: 75px;
+  width: 75px;
+  height: 75px;
 }
 
 .header2 {
-    font-family: "Sonic 1 Title Screen";
-    font-size: 44px;
+  font-family: 'Sonic 1 Title Screen';
+  font-size: 44px;
 }
 
 @media screen and (min-width: 339px) and (max-width: 495px) {
+  .wrapper__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    .wrapper__header {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  .wrapper_title2 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Sonic 1 Title Screen';
+    color: rgb(66, 60, 149);
+  }
 
-    .wrapper_title2 {
-        display: flex;
-        justify-content: center;
-        font-family: "Sonic 1 Title Screen";
-        color: rgb(66, 60, 149);
-    }
+  .wrapper__info__img {
+    width: 180px;
+    height: 120px;
+  }
 
-    .wrapper__info__img {
-        width: 180px;
-        height: 120px;
-    }
+  p {
+    font-size: 16px;
+    width: 50%;
+  }
 
-    p {
-        font-size: 16px;
-        width: 50%;
-    }
+  .header2 {
+    width: 100%;
+    font-size: 26px;
+  }
 
-    .header2 {
-        width: 100%;
-        font-size: 26px;
-    }
+  .header {
+    width: 100%;
+    font-size: 26px;
+  }
 
-    .header {
-        width: 100%;
-        font-size: 26px;
-    }
+  .header__img {
+    width: 55px;
+    height: 55px;
+  }
 
-    .header__img {
-        width: 55px;
-        height: 55px;
-    }
+  .wrapper_title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Sonic 1 Title Screen';
+    color: rgb(66, 60, 149);
+  }
 
-    .wrapper_title {
-        display: flex;
-        justify-content: center;
-        font-family: "Sonic 1 Title Screen";
-        color: rgb(66, 60, 149);
-    }
+  .header__img__kitty {
+    width: 44px;
+    height: 44px;
+  }
 
-    .header__img__kitty {
-        width: 44px;
-        height: 44px;
-    }
+  .wrapper__news__example {
+    width: 150px;
+    height: 150px;
+  }
 
-    .wrapper__news__example {
-        width: 150px;
-        height: 150px;
-    }
+  .slider__content {
+    width: 330px;
+    height: 250px;
+  }
 
-    .slider__content {
-        width: 330px;
-        height: 250px;
-    }
+  .slider__wrapper__img {
+    width: 100%;
+    height: auto;
+  }
 
-    .slider__wrapper__img {
-        width: 100%;
-        height: auto;
-    }
+  .wrapper__slider {
+    width: 330px;
+    height: 250px;
+  }
 
-    .wrapper__slider {
-        width: 330px;
-        height: 250px;
-    }
+  .wrapper__info {
+    font-size: 16px;
+    width: 330px;
+  }
 
-    .wrapper__info {
-        font-size: 16px;
-        width: 330px;
-    }
+  .wrapper__info__text {
+    font-size: 16px;
+    width: 330px;
+  }
 
-    .wrapper__info__text {
-        font-size: 16px;
-        width: 330px;
-    }
+  a {
+    font-size: 26px;
+  }
 
-    a {
-        font-size: 26px;
-    }
+  .wrapper__news__text {
+    width: 175px;
+    font-size: 24px;
+  }
 
-    .wrapper__news__text {
-        width: 175px;
-        font-size: 24px;
-    }
-
-    .content__wrapper {
-        background: rgba(240, 240, 240, .2);
-    }
-
+  .content__wrapper {
+    background: rgba(240, 240, 240, 0.2);
+  }
 }
 
 @media screen and (min-width: 495px) and (max-width: 691px) {
-    .wrapper__header {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  .wrapper__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    .content__wrapper {
-        background: rgba(240, 240, 240, .2);
-    }
+  .content__wrapper {
+    background: rgba(240, 240, 240, 0.2);
+  }
 
-    .wrapper__info__img {
-        width: 240px;
-        height: 180px;
-    }
+  .wrapper__info__img {
+    width: 240px;
+    height: 180px;
+  }
 
-    p {
-        font-size: 20px;
-        width: 50%;
-    }
+  p {
+    font-size: 20px;
+    width: 50%;
+  }
 
-    .header2 {
-        width: 100%;
-        font-size: 30px;
-    }
+  .header2 {
+    width: 100%;
+    font-size: 30px;
+  }
 
-    .header {
-        width: 100%;
-        font-size: 30px;
-    }
+  .header {
+    width: 100%;
+    font-size: 30px;
+  }
 
-    .header__img {
-        width: 55px;
-        height: 55px;
-    }
+  .header__img {
+    width: 55px;
+    height: 55px;
+  }
 
-    .wrapper_title2 {
-        display: flex;
-        justify-content: center;
-        font-family: "Sonic 1 Title Screen";
-        color: rgb(66, 60, 149);
-    }
+  .wrapper_title2 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Sonic 1 Title Screen';
+    color: rgb(66, 60, 149);
+  }
 
-    .wrapper_title {
-        display: flex;
-        justify-content: center;
-        font-family: "Sonic 1 Title Screen";
-        color: rgb(66, 60, 149);
-    }
+  .wrapper_title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Sonic 1 Title Screen';
+    color: rgb(66, 60, 149);
+  }
 
-    .header__img__kitty {
-        width: 44px;
-        height: 44px;
-    }
+  .header__img__kitty {
+    width: 44px;
+    height: 44px;
+  }
 
-    .wrapper__news__example {
-        width: 200px;
-        height: 200px;
-    }
+  .wrapper__news__example {
+    width: 200px;
+    height: 200px;
+  }
 
-    .slider__content {
-        width: 100%;
-        height: 350px;
-    }
+  .slider__content {
+    width: 100%;
+    height: 350px;
+  }
 
-    .slider__wrapper__img {
-        width: 100%;
-        height: auto;
-    }
+  .slider__wrapper__img {
+    width: 100%;
+    height: auto;
+  }
 
-    .wrapper__slider {
-        width: 80%;
-        height: 350px;
-    }
+  .wrapper__slider {
+    width: 80%;
+    height: 350px;
+  }
 
-    .wrapper__info {
-        font-size: 20px;
-        width: 400px;
-    }
+  .wrapper__info {
+    font-size: 20px;
+    width: 400px;
+  }
 
-    .wrapper__info__text {
-        font-size: 20px;
-        width: 400px;
-    }
+  .wrapper__info__text {
+    font-size: 20px;
+    width: 400px;
+  }
 
-    a {
-        font-size: 30px;
-    }
+  a {
+    font-size: 30px;
+  }
 
-    .wrapper__news__text {
-        width: 250px;
-        font-size: 24px;
-    }
+  .wrapper__news__text {
+    width: 250px;
+    font-size: 24px;
+  }
 }
 
 @media screen and (min-width: 691px) and (max-width: 785px) {
-    .wrapper__header {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  .wrapper__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    .content__wrapper {
-        background: rgba(240, 240, 240, .2);
-    }
+  .content__wrapper {
+    background: rgba(240, 240, 240, 0.2);
+  }
 
-    .wrapper__info__img {
-        width: 300px;
-        height: 240px;
-    }
+  .wrapper__info__img {
+    width: 300px;
+    height: 240px;
+  }
 
-    p {
-        font-size: 28px;
-        width: 65%;
-    }
+  p {
+    font-size: 28px;
+    width: 65%;
+  }
 
-    .header2 {
-        width: 100%;
-        font-size: 36px;
-    }
+  .header2 {
+    width: 100%;
+    font-size: 36px;
+  }
 
-    .header {
-        width: 100%;
-        font-size: 36px;
-    }
+  .header {
+    width: 100%;
+    font-size: 36px;
+  }
 
-    .header__img {
-        width: 55px;
-        height: 55px;
-    }
+  .header__img {
+    width: 55px;
+    height: 55px;
+  }
 
-    .wrapper_title {
-        display: flex;
-        justify-content: center;
-        font-family: "Sonic 1 Title Screen";
-        color: rgb(66, 60, 149);
-    }
+  .wrapper_title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Sonic 1 Title Screen';
+    color: rgb(66, 60, 149);
+  }
 
-    .header__img__kitty {
-        width: 44px;
-        height: 44px;
-    }
+  .header__img__kitty {
+    width: 44px;
+    height: 44px;
+  }
 
-    .wrapper__news__example {
-        width: 200px;
-        height: 200px;
-    }
+  .wrapper__news__example {
+    width: 200px;
+    height: 200px;
+  }
 
-    .slider__content {
-        width: 100%;
-        height: auto;
-    }
+  .slider__content {
+    width: 100%;
+    height: auto;
+  }
 
-    .slider__wrapper__img {
-        width: 100%;
-        height: auto;
-    }
+  .slider__wrapper__img {
+    width: 100%;
+    height: auto;
+  }
 
-    .wrapper__slider {
-        width: 80%;
-        height: auto;
-    }
+  .wrapper__slider {
+    width: 80%;
+    height: auto;
+  }
 
-    .wrapper__info {
-        font-size: 26px;
-        width: 600px;
-    }
+  .wrapper__info {
+    font-size: 26px;
+    width: 600px;
+  }
 
-    .wrapper__info__text {
-        font-size: 26px;
-        width: 600px;
-    }
+  .wrapper__info__text {
+    font-size: 26px;
+    width: 600px;
+  }
 
-    a {
-        font-size: 36px;
-    }
+  a {
+    font-size: 36px;
+  }
 
-    .wrapper__news__text {
-        width: 250px;
-        font-size: 24px;
-    }
+  .wrapper__news__text {
+    width: 250px;
+    font-size: 24px;
+  }
 }
