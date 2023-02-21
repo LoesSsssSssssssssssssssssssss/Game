@@ -95,10 +95,12 @@ window.addEventListener('keydown', (event) => {
     case 'a':
       // move player to the left
       keys.a.pressed = true
+      getdamage()
       break
     case 'd':
       // move player to the right
       keys.d.pressed = true
+      getdamage()
       break
   }
 })
@@ -118,3 +120,26 @@ window.addEventListener('keyup', (event) => {
   }
 })
 
+function getdamage(){
+  for (let j = 0; j < traps.length; j++) {
+    const trap = traps[j];
+
+    if (
+      player.hitbox.position.x + player.hitbox.width + 10 <=
+        trap.position.x + trap.width &&
+      player.hitbox.position.x + 10 >= trap.position.x &&
+      player.hitbox.position.y + player.hitbox.height + 10 >= trap.position.y &&
+      player.hitbox.position.y + 10 <= trap.position.y + trap.height
+    ) {
+      lives--
+      console.log(lives);
+      if( lives <= 0 ){
+        levels[level].init()
+        lives = 1
+        setTimeout(getdamage(), 3000);
+      }
+      return
+    }
+    
+  }
+}

@@ -14,6 +14,7 @@ let lastones
 let fishes
 let fishescount = 0
 let traps
+let lives = 1
 
 const player = new Player({
   imageSrc: './img/king/idle.png',
@@ -117,7 +118,7 @@ const player = new Player({
   },
 })
 
-let level = 3
+let level = 2
 let levels = {
   1: {
     init: () => {
@@ -216,8 +217,8 @@ let levels = {
       kittys = [
         new Sprite({
           position: {
-            x: 752.0,
-            y: 336,
+            x: 152.0,
+            y: 136,
           },
           imageSrc: './img/gg.png',
           frameRate: 1,
@@ -243,7 +244,19 @@ let levels = {
         }),
       ]
 
-      traps = []
+      traps = [
+        new Sprite({
+          position: {
+            x: 182.0,
+            y: 376,
+          },
+          imageSrc: './img/fck.png',
+          frameRate: 1,
+          frameBuffer: 1,
+          loop: true,
+          autoplay: true,
+        }),
+      ]
     },
   },
   3: {
@@ -325,7 +338,7 @@ let levels = {
             x: 500.0,
             y: 430,
           },
-          imageSrc: './img/ff.png',
+          imageSrc: './img/fck.png',
           frameRate: 1,
           frameBuffer: 1,
           loop: false,
