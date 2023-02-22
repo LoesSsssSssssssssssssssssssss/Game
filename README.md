@@ -36,3 +36,4 @@
 # Паланы на будущие 
 1. Додумать сюжетную линию 
 2. Реализовать все то на что не хватило времени 
+https://loessssssssssssssssssssssssss.github.io/Game/Frontend/SiteAdvertising/
